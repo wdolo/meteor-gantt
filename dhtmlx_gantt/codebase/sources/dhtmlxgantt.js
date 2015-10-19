@@ -5465,6 +5465,7 @@ gantt.isWorkTime = function(date, unit){
 };
 
 gantt.correctTaskWorkTime = function(task){
+    console.log('over here', gantt.config.correct_work_time);
 	if(gantt.config.work_time && gantt.config.correct_work_time){
 		if(!gantt.isWorkTime(task.start_date)){
 			task.start_date = gantt.getClosestWorkTime({date:task.start_date, dir:'future'});
