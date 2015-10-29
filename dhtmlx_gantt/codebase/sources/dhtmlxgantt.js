@@ -7996,6 +7996,7 @@ dhtmlx.assert = function(check, message){
 
 //initial initialization
 gantt.init = function(node, from, to){
+    console.log('init called')
 	this.callEvent("onBeforeGanttReady", []);
 	if(from && to){
 		this.config.start_date = this._min_date = new Date(from);
@@ -8017,11 +8018,12 @@ gantt.init = function(node, from, to){
 		}
 		this._reinit(node);
 	};
-
-	this._reinit(node);
+    this._isInitialized = true;
+    this._reinit(node);
 };
 
 gantt._reinit = function(node){
+    console.log('reinit called');
     this._init_html_area(node);
     this._set_sizes();
 
@@ -9405,7 +9407,8 @@ gantt._touch_events = function(names, accessor, ignore){
 
 	//touch move
 	if (!this._gantt_touch_event_ready){
-		this._gantt_touch_event_ready = 1;
+        // this screwed up the touch events when reinitializing the gantt
+        //this._gantt_touch_event_ready = 1;
 		dhtmlxEvent(gantt.$container, names[0], function(e){
 			if (ignore(e)) return;
 

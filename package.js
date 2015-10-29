@@ -14,7 +14,7 @@ Package.onUse(function(api) {
   api.versionsFrom('1.1.0.2');
     api.addFiles(
         [
-            "dhtmlx_gantt/codebase/dhtmlxgantt.js",
+            "dhtmlx_gantt/codebase/sources/dhtmlxgantt.js",
             "dhtmlx_gantt/codebase/dhtmlxgantt.css"
         ],
         "client"
